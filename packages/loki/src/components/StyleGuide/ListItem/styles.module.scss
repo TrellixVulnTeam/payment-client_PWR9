@@ -1,0 +1,54 @@
+@import 'styles/variables.scss';
+
+.item {
+  display: flex;
+  color: $color-cool-gray;
+
+  &:not(.disabled).activated {
+    color: $color-primary;
+    > * {
+      color: $color-primary;
+    }
+  }
+
+  &.disabled {
+    pointer-events: none;
+    color: $color-disabled;
+    > * {
+      color: $color-disabled;
+    }
+  }
+}
+
+.content {
+  display: flex;
+  padding: spacing(1.5) spacing(3);
+  width: 100%;
+  overflow: hidden;
+  line-height: 2.4rem;
+  color: inherit;
+  align-items: center;
+
+  > * {
+    line-height: 2.4rem;
+    margin-right: 1.2rem;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+/**
+   Sizes: name, padding-vertical, padding-horizontal, line-height.
+*/
+$sizes: (('lg', 3, 4, 2.4rem), ('md', 3, 4, 2.4rem), ('sm', 1.5, 2, 2.4rem), ('xs', 1.5, 2, 1.8rem));
+@each $name, $vertical, $horizontal, $line-height in $sizes {
+  .content-size-#{$name} {
+    padding: spacing($vertical) spacing($horizontal);
+    padding-right: 0;
+
+    > * {
+      line-height: $line-height;
+    }
+  }
+}

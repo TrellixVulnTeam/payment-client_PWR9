@@ -1,0 +1,13 @@
+@import 'styles/variables.scss';
+
+.icon {
+  fill: currentColor;
+
+  g {
+    fill: inherit;
+  }
+
+  path:only-child {
+    fill: inherit;
+  }
+}

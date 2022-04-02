@@ -1,0 +1,70 @@
+$spacing: 0.4rem;
+
+$container-width-xs: 100%;
+$container-width-sm: 768px;
+$container-width-md: 1272px;
+$container-width-lg: 1356px;
+$container-width-xl: 1692px;
+
+$container-widths: () !default;
+$container-widths: map-merge(
+  (
+    'xs': $container-width-xs,
+    'sm': $container-width-sm,
+    'md': $container-width-md,
+    'lg': $container-width-lg,
+    'xl': $container-width-xl,
+  ),
+  $container-widths
+);
+
+$container-padding-xs: $spacing * 4;
+$container-padding-sm: $spacing * 4;
+$container-padding-md: $spacing * 6;
+$container-padding-lg: $spacing * 6;
+$container-padding-xl: 0;
+
+$container-paddings: () !default;
+$container-paddings: map-merge(
+  (
+    'xs': $container-padding-xs,
+    'sm': $container-padding-sm,
+    'md': $container-padding-md,
+    'lg': $container-padding-lg,
+  ),
+  $container-paddings
+);
+
+$grid-breakpoint-xs: 0px;
+$grid-breakpoint-sm: 576px;
+$grid-breakpoint-md: 1024px;
+$grid-breakpoint-lg: 1360px;
+$grid-breakpoint-xl: 1692px;
+
+$grid-breakpoints: () !default;
+$grid-breakpoints: map-merge(
+  (
+    'xs': $grid-breakpoint-xs,
+    'sm': $grid-breakpoint-sm,
+    'md': $grid-breakpoint-md,
+    'lg': $grid-breakpoint-lg,
+    'xl': $grid-breakpoint-xl,
+  ),
+  $grid-breakpoints
+);
+
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  $min: map-get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}

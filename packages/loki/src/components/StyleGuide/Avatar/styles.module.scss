@@ -1,0 +1,51 @@
+@import 'styles/variables.scss';
+
+.avatar {
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.avatar-content {
+  font-family: 'Kanit';
+  font-style: normal;
+  font-weight: 600;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+$size: (('small', 24px, 12px), ('medium', 32px, 16px), ('large', 64px, 32px), ('largest', 72px, 36px));
+@each $name, $size, $fontSize in $size {
+  .size-#{$name} {
+    width: $size;
+    height: $size;
+    font-size: $fontSize !important;
+    font-weight: 600;
+  }
+
+  .avatar-#{$name} {
+    font-size: $fontSize !important;
+    font-weight: 600;
+  }
+
+  .avatar-content-#{$name} {
+    width: $size !important;
+    height: $size !important;
+    font-size: $fontSize !important;
+    font-weight: 600;
+  }
+}

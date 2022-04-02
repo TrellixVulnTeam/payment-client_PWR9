@@ -1,0 +1,39 @@
+@import 'styles/variables.scss';
+
+.paper-actions {
+  width: 100%;
+}
+
+svg {
+  &.search-icon {
+    color: $color-cool-gray !important;
+  }
+}
+
+.resources-wrapper {
+  height: 0; // Avoid flicker when set new height
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.resources-content {
+  overflow-y: auto;
+  max-height: 768px;
+  padding: 32px;
+  width: 100%;
+}
+
+.resources-content-item:not(:last-child) {
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid $color-persian-blue-lightest;
+}
+
+.resources-header {
+  display: flex;
+  padding: 32px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid $color-persian-blue-lightest;
+}

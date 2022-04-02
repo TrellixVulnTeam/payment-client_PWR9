@@ -1,0 +1,36 @@
+@import 'styles/variables.scss';
+
+.list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  .list {
+    padding-left: spacing(10);
+    width: 100%;
+  }
+}
+
+.direction-row {
+  flex-direction: row;
+}
+
+.direction-column {
+  flex-direction: column;
+  max-height: 380px;
+  overflow: hidden;
+  overflow-y: auto;
+
+  & > * {
+    margin: 0;
+  }
+}
+
+.direction-column-reverse {
+  flex-direction: column-reverse;
+}
+
+.direction-row-reverse {
+  flex-direction: row-reverse;
+}

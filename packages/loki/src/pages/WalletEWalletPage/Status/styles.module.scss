@@ -1,0 +1,18 @@
+@import 'styles/variables.scss';
+
+$color-active: $color-green-base;
+$color-inactive: $color-red-base;
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.active {
+  background-color: $color-active;
+}
+
+.inactive {
+  background-color: $color-inactive;
+}

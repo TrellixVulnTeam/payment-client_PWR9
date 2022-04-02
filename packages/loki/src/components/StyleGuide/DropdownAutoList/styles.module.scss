@@ -1,0 +1,137 @@
+@import 'styles/variables.scss';
+
+/**
+   Sizes: name, padding-vertical, padding-horizontal.
+*/
+$sizes: (('lg', 4, 4), ('md', 2, 4));
+
+.select {
+  line-height: spacing(4.5);
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+@each $name, $vertical, $horizontal in $sizes {
+  .select-size-#{$name} {
+    padding: spacing($vertical) spacing($horizontal);
+    padding-right: 0;
+    line-height: 1.29;
+  }
+}
+
+.disabled {
+  pointer-events: none;
+  color: red;
+}
+
+.placeholder {
+  color: $color-gray-darker;
+  transition: color 0.1s ease;
+  &:hover {
+    color: $color-gray-darker;
+  }
+}
+
+.icon {
+  fill: $color-blue-dark;
+}
+
+/**
+  States: name, icon size.
+*/
+$icon-sizes: (('lg', 6), ('md', 6));
+@each $name, $icon-size in $icon-sizes {
+  .addon-size-#{$name} {
+    .icon {
+      width: spacing($icon-size);
+      height: spacing($icon-size);
+    }
+  }
+}
+
+$label-sizes: (('lg', $font-size-body1, spacing(6)), ('md', $font-size-body1, spacing(6)));
+@each $name, $size, $line-height in $label-sizes {
+  .label-size-#{$name} {
+    font-size: $size;
+    line-height: $line-height;
+  }
+}
+
+.input.is-selected {
+  background-color: $color-persian-blue-lightest;
+  border-color: $color-primary;
+  .icon,
+  .icon svg {
+    fill: $color-primary;
+  }
+}
+
+.input.is-open {
+  background-color: $color-white;
+  border-color: $color-primary;
+}
+
+.input:not(.is-open) {
+  .label-text {
+    color: $color-blue-dark;
+  }
+}
+
+.wrapper-list {
+  overflow: auto;
+}
+
+.popper {
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  box-shadow: 0 3px 12px rgb(27 31 35 / 15%);
+  border-radius: 8px;
+  min-width: 300px;
+  z-index: 9999;
+  font-size: 13px;
+  color: #586069;
+  background-color: #f6f8fa;
+  overflow: hidden;
+}
+
+.popperDisablePortal {
+  position: relative !important;
+}
+
+.paper {
+  box-shadow: none;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  color: #586069;
+  font-size: 14px;
+}
+
+.option {
+  min-height: auto;
+  align-items: flex-start;
+  padding: 10px;
+  &[aria-selected='true'] {
+    background-color: transparent;
+  }
+  [data-focus='true'] {
+    background-color: gray;
+  }
+}
+
+.inputBase {
+  padding: 10px;
+  width: 100%;
+  border-bottom: 1px solid #dfe2e5;
+  & input {
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    font-size: 14px;
+    &:focus {
+      border-color: $color-primary;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@import 'styles/variables.scss';
+
+.root {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+$types: (
+  ('success' $color-green-lightest),
+  ('error' $color-red-lightest),
+  ('warning' $color-yellow-lightest),
+);
+
+@each $name, $color in $types {
+  .type-#{$name} {
+    background-color: $color;
+  }
+}

@@ -1,0 +1,61 @@
+@import 'styles/variables.scss';
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  > span {
+    padding-bottom: spacing(0.5);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+.icon {
+  color: $color-white;
+  cursor: pointer;
+  margin-left: spacing(6);
+  transition: all 0.25s ease;
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.75);
+  }
+}
+
+.sidebar {
+  width: 28rem;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.main {
+  padding-left: 14rem;
+  & > div {
+    padding-left: 16rem;
+  }
+}
+
+.content {
+  padding: 0 spacing(4);
+
+  > div {
+    padding: spacing(3) spacing(8);
+  }
+}
+
+.right-content {
+  text-align: right;
+}
+
+.left-content {
+display: flex;
+align-items: center;
+}
+
+.version {
+  padding: spacing(1) spacing(2);
+  background: rgba(255, 255, 255, 0.2);
+  margin-left: spacing(2);
+  border-radius: radius(4);
+}

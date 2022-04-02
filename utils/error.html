@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting</title>
+</head>
+
+<body>
+    <script>
+        // For Cloudfront support detect & redirect all 404 request to /index.html
+        function findVersionFromUrl(path) {
+            const regex = /^\/(?<version>v(\d+\.?){3,}.*)\//gm;
+            const matches = regex.exec(path);
+            if (!!matches && !!matches.groups['version']) {
+                return matches.groups['version'];
+            }
+            return "";
+        }
+
+        const version = findVersionFromUrl(location.pathname);
+
+        // Redirect to version path
+        location.href = `${location.protocol}//${location.host}/${version}`
+    </script>
+</body>
+
+</html>

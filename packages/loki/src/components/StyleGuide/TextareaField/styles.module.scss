@@ -1,0 +1,74 @@
+@import 'styles/variables.scss';
+
+/**
+  States: name, color.
+*/
+$root-statuses: (
+  ('primary', $color-text),
+  ('success', $color-green-lightest),
+  ('warning', $color-yellow-lightest),
+  ('error', $color-red-lightest)
+);
+
+.text-field {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+  textarea {
+    &::placeholder {
+      color: $color-cool-gray;
+    }
+
+    &:disabled {
+      &::placeholder {
+        color: $color-cool-gray;
+      }
+    }
+  }
+
+  @each $name, $textColor in $root-statuses {
+    &:not(.disabled).status-#{$name} {
+      color: $textColor;
+    }
+  }
+
+  .label {
+    color: $color-cool-gray;
+    font-weight: 600;
+  }
+
+  .optional,
+  .input,
+  .note {
+    color: inherit;
+  }
+
+  .label,
+  .optional {
+    margin-bottom: spacing(2);
+  }
+
+  .note {
+    margin-top: spacing(2);
+  }
+}
+
+.label {
+  display: inline-flex;
+  flex: 1 1 auto;
+  justify-content: flex-start;
+}
+
+.optional {
+  display: inline-flex;
+  justify-content: flex-end;
+}
+
+.input {
+  flex-basis: 100%;
+}
+
+.note {
+  flex-basis: 100%;
+}

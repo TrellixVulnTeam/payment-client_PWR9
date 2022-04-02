@@ -1,0 +1,65 @@
+@import 'styles/variables.scss';
+
+.navigate-button {
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+}
+
+.item,
+.indicator,
+.icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-white;
+  color: $color-blue-dark;
+  border-radius: 50%;
+
+  > * {
+    color: inherit;
+  }
+
+  &:first-child {
+    border-top-left-radius: $radius-regular;
+    border-bottom-left-radius: $radius-regular;
+  }
+
+  &:last-child {
+    border-top-right-radius: $radius-regular;
+    border-bottom-right-radius: $radius-regular;
+  }
+}
+
+.item,
+.icon {
+  cursor: pointer;
+}
+
+.active {
+  background: $color-primary;
+  // border-color: $color-primary;
+  color: $color-white;
+  font-weight: $font-weight-bold;
+  z-index: 1;
+}
+
+.disabled {
+  pointer-events: none;
+  color: $color-disabled;
+}
+
+.icon {
+  padding: 0;
+}
+
+.pagination {
+  button {
+    &.icon {
+      &.prev, &.next {
+        border-radius: 50%;
+      }
+    }
+  }
+}

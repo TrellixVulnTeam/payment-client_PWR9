@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <style>
+      body,
+      html {
+        font-family: 'Kanit', 'Inter';
+      }
+      body {
+        background-color: #e5e5e5;
+      }
+      .container {
+        margin: 24px;
+        max-width: 670px;
+        background-color: #fff;
+      }
+      .paper__content {
+        padding: 40px;
+      }
+      .content__title {
+        font-size: 32px;
+        color: #252533;
+        font-family: Kanit;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 126%;
+        margin-top: 40px;
+        margin-bottom: 32px;
+      }
+      p,
+      span {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 150%;
+        letter-spacing: 0.5px;
+        color: #7c84a3;
+      }
+      .color_primary {
+        color: #0934e0;
+      }
+      .color_secondary {
+        color: #031352;
+      }
+      .font_bold {
+        font-weight: 600;
+      }
+      .mb-0 {
+        margin-bottom: 0;
+      }
+      .paper__image {
+        width: 100%;
+      }
+      .paper__image img {
+        width: 100%;
+      }
+      .button__submit {
+        display: block;
+        padding: 16px 24px;
+        background: #0934e0;
+        border-radius: 8px;
+        font-family: Kanit;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 150%;
+        text-align: center;
+        letter-spacing: 0.5px;
+        border: none;
+        cursor: pointer;
+        color: #ffffff;
+        margin-top: 16px;
+        margin-bottom: 24px;
+        text-decoration: none;
+      }
+      @media only screen and (max-width: 600px) {
+        .paper__content {
+          padding: 20px;
+        }
+        p,
+        span {
+          margin-bottom: 8px;
+          margin-top: 8px;
+        }
+        .button__submit {
+          margin-top: 8px;
+          margin-bottom: 16px;
+          padding: 8px 12px;
+          font-size: 14px;
+        }
+        .content__title {
+          font-size: 24px;
+          margin-top: 20px;
+          margin-bottom: 16px;
+        }
+        span,
+        p {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="paper">
+        <div class="paper__image">
+          <img src="./mail.png" />
+        </div>
+        <div class="paper__content">
+          <div class="content__logo">
+            <img src="Logo.svg" />
+          </div>
+          <div class="content__title">Reset your password</div>
+
+          <div class="content__content">
+            <p>Dear <span class="color_primary font_bold">username</span></p>
+            <p>
+              We have been received your request about
+              <span class="color_secondary font_bold"
+                >"the recovering your password"</span
+              >
+              issue. Your new pass word is in below.
+            </p>
+          </div>
+          <div class="content__content">
+            <p>
+              <span class="color_primary font_bold">$@#FSDF111@#!</span>
+            </p>
+          </div>
+          <a class="button__submit" href="#">Back to sign in</a>
+          <div class="content__regards">
+            <p class="mb-0">Best Regards,</p>
+            <span class="color_secondary font_bold">Alopay admin</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

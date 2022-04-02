@@ -1,0 +1,15 @@
+@import 'styles/variables.scss';
+
+.point {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+$colors: (('1', $color-persian-blue), ('2', $color-green-base), ('3', $color-red-base));
+
+@each $name, $color in $colors {
+  .status-#{$name} {
+    background-color: $color;
+  }
+}

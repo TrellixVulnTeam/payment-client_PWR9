@@ -1,0 +1,101 @@
+@import 'styles/variables.scss';
+
+$color-placeholder: $color-gray-darker;
+/**
+  States: name, color.
+*/
+$root-statuses: (
+  ('primary', $color-persian-blue-lightest, $color-white, $color-text, $color-primary, $color-placeholder),
+  ('success', $color-green-base, $color-green-lightest, $color-green-base, $color-green-base, $color-green-base),
+  ('warning', $color-yellow-base, $color-yellow-lightest, $color-yellow-base, $color-yellow-base, $color-yellow-base),
+  ('error', $color-red-base, $color-red-lightest, $color-red-base, $color-red-base, $color-red-base)
+);
+
+.text-field {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+  & input:read-only {
+    background-color: $color-persian-blue-lightest;
+    &::placeholder {
+      color: $color-cool-gray;
+    }
+    &:hover::placeholder {
+      color: $color-cool-gray;
+    }
+  }
+
+  input {
+    &::placeholder {
+      color: $color-cool-gray;
+    }
+
+    &:disabled {
+      &::placeholder {
+        color: $color-cool-gray;
+      }
+    }
+  }
+
+  @each $name, $br-color, $bg-color, $text-color, $hover-br-color, $placeholder in $root-statuses {
+    .status-#{$name}:not(.disabled) {
+      background-color: $bg-color;
+      color: $text-color;
+      border-color: $br-color;
+
+      &:hover {
+        outline: 3px solid $hover-br-color;
+        border-color: transparent;
+        ::placeholder {
+          color: $placeholder;
+        }
+      }
+      ::placeholder {
+        color: $placeholder;
+      }
+      .adornment svg {
+        color: $text-color;
+      }
+    }
+  }
+
+  .label {
+    color: $color-cool-gray;
+    font-weight: 600;
+  }
+
+  .optional,
+  .input,
+  .note {
+    color: inherit;
+  }
+
+  .label,
+  .optional {
+    margin-bottom: spacing(2);
+  }
+
+  .note {
+    margin-top: spacing(2);
+  }
+}
+
+.label {
+  display: inline-flex;
+  flex: 1 1 auto;
+  justify-content: flex-start;
+}
+
+.optional {
+  display: inline-flex;
+  justify-content: flex-end;
+}
+
+.input {
+  flex-basis: 100%;
+}
+
+.note {
+  flex-basis: 100%;
+}

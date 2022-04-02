@@ -1,0 +1,12 @@
+@import 'styles/variables.scss';
+
+.root {
+  .pointer {
+    cursor: pointer;
+  }
+  svg {
+    &.search-icon {
+      color: $color-cool-gray !important;
+    }
+  }
+}

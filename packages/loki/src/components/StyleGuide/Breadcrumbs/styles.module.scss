@@ -1,0 +1,34 @@
+@import 'styles/variables.scss';
+
+.root {
+  display: flex;
+  align-items: center;
+  height: 32px;
+}
+
+.container {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: inherit;
+  width: 100%;
+  align-items: inherit;
+  color: inherit;
+}
+
+.item {
+  padding-right: spacing(4);
+  font-size: $font-size-body2;
+  color: inherit;
+}
+
+.separator {
+  padding-right: spacing(4);
+  line-height: 1;
+  font-size: $font-size-caption;
+  color: inherit;
+  svg {
+    fill: $color-cool-gray;
+  }
+}

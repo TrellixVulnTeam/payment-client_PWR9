@@ -1,0 +1,143 @@
+@import 'styles/variables.scss';
+
+$font-family-base: 'Kanit', 'Inter', 'Helvetica', 'Arial', sans-serif;
+$letter-spacing: spacing(0.15);
+$font-size-base: 1.4rem;
+$line-height-base: 1.8rem;
+$font-weight-base: 400;
+$font-weight-bolder: $font-weight-bold;
+
+.root {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  font-weight: $font-weight-base;
+  line-height: $line-height-base;
+}
+
+/*
+  Variants list
+  Order values: name, font size, line height, letter-spacing
+*/
+$variants: (
+  ('head1', $color-text, $font-weight-bold, $font-size-head1, $font-family-head, 9.5, -0.25px),
+  ('head2', $color-text, $font-weight-bold, $font-size-head2, $font-family-head, 8, 0px),
+  ('head3', $color-text, $font-weight-bold, $font-size-head3, $font-family-head, 5.5, 0.25px),
+  ('head4', $color-text, $font-weight-bold, $font-size-head4, $font-family-head, 5.5, 0.5px),
+  ('body1', $color-text, $font-weight-light, $font-size-body1, $font-family-body, 5.5, 0.5px),
+  ('body2', $color-text, $font-weight-light, $font-size-body2, $font-family-body, 4.5, 0.75px),
+  ('caption', $color-text, $font-weight-light, $font-size-caption, $font-family-head, 4, 1px),
+  ('button1', $color-text, $font-weight-medium, $font-size-button1, $font-family-head, 5, 0.5px),
+  ('button2', $color-text, $font-weight-medium, $font-size-button2, $font-family-head, 4.5, 0.75px)
+);
+
+@each $name, $color, $font-weight, $fontSize, $font-family-body, $line-height, $spacing in $variants {
+  .variant-#{$name} {
+    font-family: $font-family-body;
+    color: $color;
+    font-weight: $font-weight;
+    font-size: $fontSize;
+    line-height: spacing($line-height);
+    letter-spacing: $spacing;
+  }
+}
+
+.variant-inherit {
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+}
+
+/*
+  Font weights list
+  Order values: name, font-weight
+*/
+$weights: (
+  ('light', $font-weight-light),
+  ('regular', $font-weight-regular),
+  ('medium', $font-weight-medium),
+  ('bold', $font-weight-bold)
+);
+
+@each $name, $weight in $weights {
+  .weight-#{$name} {
+    font-weight: $weight;
+  }
+}
+
+.weight-inherit {
+  font-weight: inherit;
+}
+
+/*
+  Types list
+  Order values: name, color
+*/
+$types: (
+  ('primary' $color-primary),
+  ('secondary' $color-purple-base),
+  ('default' $color-text),
+  ('title-default' $color-text),
+  ('disable' $color-disabled),
+  ('error' $color-error),
+  ('invert' $color-invert),
+  ('link' $color-link),
+  ('sub' $color-sub),
+  ('title-sub' $color-title-sub),
+  ('success' $color-green-base),
+  ('warning' $color-warning),
+  ('inherit' inherit)
+);
+
+@each $name, $color in $types {
+  .type-#{$name} {
+    color: $color;
+  }
+}
+
+.type-link {
+  cursor: pointer;
+}
+
+.type-strikethrough {
+  color: $color-disabled;
+  text-decoration: line-through;
+}
+
+.type-inherit {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.gutter-bottom {
+  margin-bottom: 0.35em;
+}
+
+.paragraph {
+  margin-bottom: spacing(4);
+}
+
+.truncate {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.truncate-1 {
+  -webkit-line-clamp: 1;
+}
+
+.truncate-2 {
+  -webkit-line-clamp: 2;
+}
+
+.truncate-3 {
+  -webkit-line-clamp: 3;
+}
+
+.truncate-4 {
+  -webkit-line-clamp: 4;
+}
+
+.truncate-5 {
+  -webkit-line-clamp: 5;
+}

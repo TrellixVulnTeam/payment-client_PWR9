@@ -1,0 +1,5 @@
+Account ID;E-Wallet;Phone Number;Account Name;Balance (VND);Current Daily Balance (VND);Daily Balance Limit (VND);Daily Used Amount (VND)
+3000;1;0987654324;Johny dang;100000;0;50000;10000
+3001;2;0987654321;Alex Nguyen;150000;0;100000;20000
+3002;2;0987654322;John Pham;2000000;0;200000;30000
+3003;1;0987654323;Stark Tran;475000;0;300000;40000

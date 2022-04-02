@@ -1,0 +1,98 @@
+@import 'styles/variables.scss';
+
+$color-placeholder: $color-gray-darker;
+
+/**
+  States: name, border-color, background-color, color, hover-border-color.
+*/
+$root-statuses: (
+  ('primary', $color-persian-blue-lightest, $color-white, $color-text, $color-primary, $color-placeholder),
+  ('success', $color-green-base, $color-green-lightest, $color-green-base, $color-green-base, $color-green-base),
+  ('warning', $color-yellow-base, $color-yellow-lightest, $color-yellow-base, $color-yellow-base, $color-yellow-base),
+  ('error', $color-red-base, $color-red-lightest, $color-red-base, $color-red-base, $color-red-base)
+);
+
+/**
+   Sizes: name, line-height, padding-vertical, padding-horizontal, font-size.
+*/
+$sizes: (
+  ('lg', spacing(6), spacing(4), spacing(6), $font-size-body1),
+  ('md', spacing(6), spacing(2), spacing(4), $font-size-body2)
+);
+
+$input-transition: all 0.2s ease;
+$input-transition-property: background-color, color;
+
+.root {
+  display: flex;
+  box-sizing: border-box;
+  align-items: stretch;
+  width: 100%;
+  overflow: hidden;
+  border-radius: $radius-bold;
+  border: 1px solid $color-persian-blue-lightest;
+  font-size: $font-size-body2;
+
+  transition: $input-transition;
+  transition-property: $input-transition-property;
+}
+
+@each $name, $line-height, $padding-vertical, $padding-horizontal, $font-size in $sizes {
+  .size-#{$name} {
+    padding: $padding-vertical $padding-horizontal;
+    line-height: $line-height;
+    font-size: $font-size !important;
+  }
+}
+
+@each $name, $br-color, $bg-color, $text-color, $hover-br-color, $placeholder in $root-statuses {
+  .status-#{$name}:not(.disabled) {
+    background-color: $bg-color;
+    color: $text-color;
+    border-color: $br-color;
+
+    &:hover,
+    &:focus,
+    &:active {
+      outline: 2px solid $hover-br-color;
+      color: $text-color;
+      ::placeholder {
+        color: $placeholder;
+      }
+    }
+    ::placeholder {
+      color: $placeholder;
+    }
+    .adornment svg {
+      color: $placeholder;
+    }
+  }
+}
+
+.disabled {
+  background: $color-disabled;
+  border-color: $color-transparent;
+  color: $color-gray-darker;
+}
+
+.textarea {
+  resize: none;
+  font-family: 'Inter';
+  border: none;
+  outline: none;
+  width: 100%;
+  background-color: inherit;
+  font-size: inherit;
+  color: inherit;
+  font-weight: inherit;
+  &.disabled {
+    pointer-events: none;
+  }
+}
+
+.has-before {
+  padding-left: 0;
+}
+.has-after {
+  padding-right: 0;
+}

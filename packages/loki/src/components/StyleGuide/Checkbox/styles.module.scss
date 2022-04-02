@@ -1,0 +1,46 @@
+@import 'styles/variables.scss';
+
+.root {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  transition: all 0.25s ease;
+
+  &.disabled {
+    opacity: 0.7;
+    pointer-events: none;
+    // color: $color-grey-200;
+    color: grey;
+  }
+
+  &:not(.disabled):not(.intermediate).checked {
+    .icon {
+      // color: $color-red-500;
+      color: red;
+    }
+  }
+
+  &.disabled.checked {
+    .icon {
+      // color: $color-red-100;
+      color: rgba(red, 0.1);
+    }
+  }
+
+  .icon {
+    top: 0;
+    left: 0;
+    height: 100%;
+    // color: $color-grey-500;
+    color: grey;
+  }
+}
+
+.content {
+  margin-left: spacing(2);
+}
+
+.input {
+  display: none;
+}

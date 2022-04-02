@@ -1,0 +1,62 @@
+@import 'styles/variables.scss';
+
+$divider-bg-color: $color-persian-blue-lightest;
+$line-size: 1px;
+$filled-size: 8px;
+
+/* Styles applied to the root element. */
+.divider {
+  margin: 0; // Reset browser default style.
+  border: none;
+  flex-shrink: 0;
+  background-color: $divider-bg-color;
+}
+
+.line:not(.vertical) {
+  height: $line-size;
+}
+
+.filled:not(.vertical) {
+  height: $filled-size;
+}
+
+/* Styles applied to the root element if `absolute={true}`. */
+.absolute {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* Styles applied to the root element if `variant="inset"`. */
+.inset {
+  margin-left: 72;
+}
+
+/* Styles applied to the root element if `light={true}`. */
+.light {
+  background-color: fade($divider-bg-color, 0.08);
+}
+
+/* Styles applied to the root element if `variant="middle"`. */
+.middle {
+  margin-left: spacing(2);
+  margin-right: spacing(2);
+}
+
+/* Styles applied to the root element if `orientation="vertical"`. */
+.vertical {
+  height: 100%;
+  &.filled {
+    width: $line-size;
+  }
+  &.line {
+    width: $filled-size;
+  }
+}
+
+/* Styles applied to the root element if `flexItem={true}`. */
+.flexItem {
+  align-self: stretch;
+  height: auto;
+}

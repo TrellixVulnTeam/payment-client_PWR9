@@ -1,0 +1,14 @@
+$spacing-unit: 0.4rem; // 0.4 * $root-font-size = 4px
+
+$spacing_xs: $spacing-unit * 1;
+$spacing_sm: $spacing-unit * 2;
+$spacing_md: $spacing-unit * 3;
+$spacing_lg: $spacing-unit * 4;
+$spacing_xl: $spacing-unit * 5;
+$spacing_2xl: $spacing-unit * 6;
+$spacing_3xl: $spacing-unit * 7;
+$spacing_4xl: $spacing-unit * 8;
+
+@function spacing($variant) {
+  @return $spacing-unit * $variant;
+}

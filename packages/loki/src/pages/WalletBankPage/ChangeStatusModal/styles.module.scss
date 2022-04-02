@@ -1,0 +1,18 @@
+@import 'styles/variables.scss';
+
+.root {
+  div {
+    &.inherit {
+      display: inherit;
+    }
+  }
+
+  .icon {
+    &-inactive {
+      color: $color-red-base;
+    }
+    &-active {
+      color: $color-primary;
+    }
+  }
+}

@@ -1,0 +1,128 @@
+@use 'sass:math';
+@import 'styles/variables.scss';
+
+$columns: 12;
+$spacings: 12;
+
+.grid {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  align-content: stretch;
+}
+.wrap {
+  flex-wrap: wrap;
+}
+
+// direction
+.row {
+  flex-direction: row;
+}
+.row-reverse {
+  flex-direction: row-reverse;
+}
+.column {
+  flex-direction: column;
+}
+.column-reverse {
+  flex-direction: column-reverse;
+}
+
+// justifyContent
+.justify-center {
+  justify-content: center;
+}
+.justify-space-between {
+  justify-content: space-between;
+}
+.justify-space-around {
+  justify-content: space-around;
+}
+.justify-flex-start {
+  justify-content: flex-start;
+}
+.justify-flex-end {
+  justify-content: flex-end;
+}
+
+.align-center {
+  align-items: center;
+}
+.align-flex-end {
+  align-items: flex-end;
+}
+.align-flex-start {
+  align-items: flex-start;
+}
+.align-baseline {
+  align-items: baseline;
+}
+
+.item {
+  box-sizing: border-box;
+  margin: 0;
+  width: 100%;
+}
+
+@mixin grid-size($size) {
+  @if $size == true {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+  } @else if $size == auto {
+    flex-basis: auto;
+    flex-grow: 0;
+    width: auto;
+    max-width: none;
+  } @else {
+    max-width: percentage(math.div($size, 12));
+    flex-grow: 0;
+    flex-basis: percentage(math.div($size, 12));
+  }
+}
+
+@mixin grid-spacing($spacing) {
+  $themeSpacing: $spacing-unit * $spacing;
+  $margin: math.div(-$themeSpacing, 2);
+  $padding: math.div($themeSpacing, 2);
+  & {
+    margin: $margin;
+    width: calc(100% + #{$themeSpacing});
+  }
+  
+  > .item {
+    padding: $padding;
+  }
+}
+
+@each $breakpoint, $value in $grid-breakpoints {
+
+  @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+    @for $i from 1 through $columns {
+      .#{$breakpoint}-#{$i} {
+        @include grid-size($i);
+      }
+    }
+
+    .#{$breakpoint}-true {
+      @include grid-size(true);
+    }
+
+    .#{$breakpoint}-auto {
+      @include grid-size(auto);
+    }
+
+    @for $i from 1 through $spacings {
+      .s-#{$breakpoint}-#{$i} {
+        @include grid-spacing($i);
+      }
+    }
+  }
+}
+
+@for $i from 1 through $spacings {
+  .s-#{$i} {
+    @include grid-spacing($i);
+  }
+}

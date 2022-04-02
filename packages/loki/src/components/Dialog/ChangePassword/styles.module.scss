@@ -1,0 +1,22 @@
+@import 'styles/variables.scss';
+
+.root {
+  width: 70%;
+  min-width: 70%;
+}
+
+.icon {
+  cursor: pointer;
+  &-error {
+    width: 1.7rem;
+    height: 1.7rem;
+    color: $color-error;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .root {
+    width: 30%;
+    min-width: 30%;
+  }
+}

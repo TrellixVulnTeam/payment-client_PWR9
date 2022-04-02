@@ -1,0 +1,32 @@
+@import 'styles/variables.scss';
+
+.upload-placeholder {
+  background-color: $color-ghost-white;
+  border: solid 1px $color-persian-blue-lightest;
+  border-radius: $radius-bold;
+  cursor: pointer;
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: $color-green-base;
+  }
+}
+
+.box-upload-result {
+  background-color: $color-green-lightest;
+  border-radius: $radius-bold;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: $color-green-base;
+  }
+}
+
+.progress {
+  height: spacing(2);
+  border-radius: $radius-bold;
+  background-color: $color-green-base;
+}

@@ -1,0 +1,22 @@
+@import 'styles/variables.scss';
+
+.cell {
+}
+
+/*
+  Aligns list
+  Order values: name, text-align
+*/
+$aligns: (
+  ('inherit', inherit),
+  ('left', left),
+  ('center', center),
+  ('right', right),
+  ('justify', justify)
+);
+
+@each $name, $value in $aligns {
+  .align-#{$name} {
+    text-align: $value;
+  }
+}

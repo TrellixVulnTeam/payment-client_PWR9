@@ -1,0 +1,97 @@
+@import 'styles/variables.scss';
+
+$dot-size: 16px;
+$width: 40px;
+
+$colors: (
+  ('primary', $color-primary),
+);
+
+@each $name, $bgColor in $colors {
+  .root.#{$name}.checked .nav {
+    background-color: $bgColor;
+  }
+}
+
+.root {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  &:not(.checked) {
+    .dot {
+      left: 2px;
+    }
+    .nav {
+      justify-content: flex-end;
+      background-color: $color-persian-blue-lightest;
+    }
+  }
+
+  &.checked {
+    .dot {
+      left: 22px;
+    }
+    .nav {
+      justify-content: flex-start;
+      background-color: $color-primary;
+    }
+  }
+
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}
+
+.icon {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 0;
+  height: 100%;
+  width: $width;
+  color: inherit;
+  transition: all 0.25s ease;
+
+  .dot {
+    display: block;
+    position: absolute;
+    top: 4px;
+    height: $dot-size;
+    width: $dot-size;
+    background: $color-white;
+    border-radius: $radius-max;
+    transition: inherit;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    height: 20px;
+    width: 100%;
+    border-radius: radius(5);
+    transition: inherit;
+  }
+
+  .mark {
+    display: flex;
+    align-items: center;
+
+    margin: 5px;
+    width: 12px;
+    height: 12px;
+    color: $color-white;
+  }
+}
+
+.content {
+  margin-left: spacing(2);
+}
+
+.input {
+  display: none;
+}

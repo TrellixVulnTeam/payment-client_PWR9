@@ -1,0 +1,16 @@
+.root {
+  display: flex;
+
+  &.direction-column {
+    flex-direction: column;
+    & > *:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &.direction-row {
+    & > * {
+      margin-right: 16px;
+    }
+  }
+}

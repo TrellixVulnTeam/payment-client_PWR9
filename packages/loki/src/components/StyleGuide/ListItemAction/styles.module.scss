@@ -1,0 +1,14 @@
+@import 'styles/variables.scss';
+
+.listItemAction {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-left: spacing(4);
+  width: 24px;
+  color: inherit;
+}
+
+.icon {
+  width: inherit;
+}

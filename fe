@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+usage() {
+    echo "
+    Usage:
+        ./fe COMMAND APP [OPTION]
+
+    Commands:
+     start      Start a web app in development mode
+     build      Create a bundle for web app
+"
+}
+
+help="-h"
+command=${1:-$help}
+
+supported_command="start build"
+if [[ "$command" == "$help" ]]; then
+    usage
+    exit 0
+fi
+
+regex="$command([^a-zA-Z0-9_-]|$)"
+if ! [[ $supported_command =~ $regex ]]; then
+    usage
+    exit 1
+fi
+
+app=${2}
+if [[ -z "$app" ]]; then
+    usage
+    exit 1
+fi
+
+start() {
+    if [ -z "${ENV}" ]; then
+        cmd="yarn run react-scripts start"
+    else
+        cmd="yarn run env-cmd -f .env.${ENV} react-scripts start"
+    fi
+    lerna exec --scope "$app" -- $cmd
+}
+
+build() {
+    if [ -z "${ENV}" ]; then
+        cmd="yarn run react-scripts build"
+    else
+        cmd="yarn run env-cmd -f .env.${ENV} react-scripts build"
+    fi
+    lerna exec --scope "$app" -- $cmd
+}
+
+$command

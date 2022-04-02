@@ -1,0 +1,8 @@
+@import 'styles/variables.scss';
+
+.photo-container {
+  background-color: $color-ghost-white;
+  .photo {
+    max-height: 27rem;
+  }
+}

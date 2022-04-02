@@ -1,0 +1,67 @@
+{
+  "name": "loki",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@hookform/resolvers": "^2.8.0",
+    "@ilt-core/toast": "^1.0.0",
+    "@popperjs/core": "2.3.3",
+    "@rooks/use-fork-ref": "3.6.0",
+    "@types/warning": "^3.0.0",
+    "classnames": "^2.3.1",
+    "clsx": "^1.1.1",
+    "csstype": "^2.6.10",
+    "date-fns": "^2.23.0",
+    "immutable": "^4.0.0-rc.14",
+    "lodash-es": "^4.17.21",
+    "memoize-one": "^5.2.1",
+    "normalizr": "^3.6.1",
+    "react-image-crop": "^9.0.4",
+    "react-number-format": "^4.7.3",
+    "react-papaparse": "^3.17.2",
+    "redux-immutable": "^4.0.0",
+    "sass": "^1.38.2",
+    "use-count-up": "^3.0.1",
+    "warning": "^4.0.3",
+    "yup": "^0.32.9"
+  },
+  "scripts": {
+    "start": "env-cmd -f .env.local-dev react-scripts start",
+    "start:stg": "env-cmd -f .env.stg react-scripts start",
+    "loki:start": "yarn start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "push-test": "react-scripts test --watchAll=false",
+    "eject": "react-scripts eject",
+    "cleanup": "rm -rf node_modules && cd .. && rm -rf node_modules",
+    "docs:dev": "FAST_REFRESH=false npx styleguidist server",
+    "docs:build": "FAST_REFRESH=false npx styleguidist build",
+    "build:beta": "env-cmd -f .env.beta react-scripts build",
+    "build:stg": "env-cmd -f .env.stg react-scripts build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/faker": "^5.5.6",
+    "@types/google-protobuf": "^3.15.2",
+    "@types/react-router-dom": "^5.3.2",
+    "raw-loader": "^4.0.2",
+    "react-styleguidist": "11.0.0"
+  }
+}

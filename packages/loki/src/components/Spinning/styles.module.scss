@@ -1,0 +1,7 @@
+@import 'styles/variables.scss';
+
+@include rotation-mixin('rotating');
+
+.loading {
+  animation: rotating 1s infinite;
+}

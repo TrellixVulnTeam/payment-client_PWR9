@@ -1,0 +1,28 @@
+@import 'styles/variables.scss';
+
+.addon {
+  padding: 0 spacing(4);
+  display: flex;
+  align-items: center;
+}
+
+/**
+  States: name, padding, icon size.
+*/
+$sizes: (('lg', 4), ('md', 3), ('sm', 2), ('xs', 2));
+@each $name, $size in $sizes {
+  .addon-size-#{$name} {
+    padding: 0 spacing($size);
+  }
+}
+
+$icon-sizes: (('lg', 6), ('md', 6), ('sm', 4), ('xs', 3));
+
+@each $name, $icon-size in $icon-sizes {
+  .addon-size-#{$name} {
+    svg {
+      width: spacing($icon-size);
+      height: spacing($icon-size);
+    }
+  }
+}

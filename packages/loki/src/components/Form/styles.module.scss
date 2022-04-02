@@ -1,0 +1,66 @@
+@import 'styles/variables.scss';
+
+$root-statuses: (
+  ('primary', $color-text),
+  ('success', $color-green-lightest),
+  ('warning', $color-yellow-lightest),
+  ('error', $color-red-lightest)
+);
+
+.text-field {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+  @each $name, $textColor in $root-statuses {
+    &:not(.disabled).status-#{$name} {
+      color: $textColor;
+    }
+  }
+
+  .label {
+    color: $color-cool-gray;
+    font-weight: 600;
+  }
+
+  .optional,
+  .input,
+  .note {
+    color: inherit;
+  }
+
+  .label,
+  .optional {
+    margin-bottom: spacing(2);
+  }
+
+  .note {
+    margin-top: spacing(2);
+  }
+}
+
+.password {
+  .icon {
+    color: $color-gray-darkest;
+    &.success-icon {
+      color: $color-green-base;
+    }
+  }
+}
+
+.inputPhoneNumber {
+  width: 100% !important;
+  background-color: #fff !important;
+  color: #031352 !important;
+  border-color: #d6deff !important;
+  border-radius: 8px !important;
+  font-family: 'Inter' !important;
+}
+
+.containerPhoneNumber {
+  width: 100% !important;
+}
+
+.countryListPhoneNumber {
+  position: fixed !important;
+}

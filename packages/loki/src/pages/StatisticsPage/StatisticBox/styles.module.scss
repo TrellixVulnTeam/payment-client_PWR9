@@ -1,0 +1,9 @@
+@import 'styles/variables.scss';
+
+$types: (('up' $color-green-base), ('down' $color-red-base));
+
+@each $name, $color in $types {
+  .direction-#{$name} {
+    color: $color;
+  }
+}

@@ -1,0 +1,28 @@
+@import 'styles/variables.scss';
+
+.root {
+  .paper {
+    cursor: pointer;
+    background-color: $color-ghost-white;
+
+    .icon-download {
+      width: 24px;
+      height: 24px;
+      fill: $color-persian-blue;
+    }
+  }
+  .box-upload-result {
+    background-color: $color-green-lightest;
+    border-radius: $radius-bold;
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: $color-green-base;
+    }
+    .progress {
+      height: spacing(2);
+      border-radius: $radius-bold;
+      background-color: $color-green-base;
+    }
+  }
+}

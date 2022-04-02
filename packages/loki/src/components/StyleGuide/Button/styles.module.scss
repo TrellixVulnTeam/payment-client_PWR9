@@ -1,0 +1,154 @@
+@import 'styles/variables.scss';
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn {
+  outline: none;
+  box-sizing: border-box;
+  font-weight: $font-weight-medium;
+  border: 1px solid transparent;
+  border-radius: $radius-bold;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+/*
+  values: name, font size, line height, font weight, padding.
+*/
+$text-sizes: (
+  ('lg', $font-size-body1, 1.38, $font-weight-medium, spacing(4)),
+  ('md', $font-size-body2, 1.29, $font-weight-medium, spacing(2.5)),
+  ('sm', $font-size-body2, 1.29, $font-weight-medium, spacing(1.5))
+);
+@each $name, $font-size, $line-height, $font-weight, $padding in $text-sizes {
+  :not(.use-icon).size-#{$name} {
+    padding: $padding;
+    font-size: $font-size;
+    line-height: $line-height;
+    font-weight: $font-weight;
+  }
+}
+
+/*
+  values: name, padding, icon size
+*/
+$icon-sizes: (
+  ('lg', 32px, $font-size-body2, 1.38, $font-weight-medium, spacing(2.75)),
+  ('md', 24px, $font-size-body2, 1.29, $font-weight-medium, spacing(1.75)),
+  ('sm', 16px, $font-size-body2, 1.29, $font-weight-medium, spacing(1.5))
+);
+@each $name, $size, $font-size, $line-height, $font-weight, $padding in $icon-sizes {
+  .use-icon.size-#{$name} {
+    padding: $padding;
+    .icon {
+      height: $size;
+      width: $size;
+    }
+    &.loading {
+      cursor: progress;
+      svg {
+        width: $size;
+        height: $size;
+        animation: rotating 1.5s linear infinite;
+        path:first-child {
+          fill: $color-white;
+        }
+        path:last-child {
+          fill: $color-white;
+        }
+      }
+    }
+  }
+}
+
+/*
+  values: name, icon-size, spacing-right
+*/
+$start-icon-sizes: (('lg', 20px, 16px), ('md', 18px, 8px), ('sm', 16px, 4px));
+@each $name, $icon-size, $spacing-right in $start-icon-sizes {
+  .size-#{$name} {
+    .start-icon {
+      font-size: $icon-size;
+      margin-right: $spacing-right;
+    }
+  }
+}
+
+$variants: (
+  // name-----text color-------border-color---------bg color----------bg hover-----------------bg pressed----------------bg-disabled
+  (
+      'primary',
+      $color-white,
+      $color-transparent,
+      $color-primary,
+      $color-persian-blue-darker,
+      $color-persian-blue-darkest,
+      $color-disabled
+    ),
+  (
+    'secondary',
+    $color-text,
+    $color-persian-blue-lightest,
+    $color-secondary,
+    $color-gray-darker,
+    $color-gray-darkest,
+    $color-disabled
+  ),
+  ('danger', $color-white, $color-transparent, $color-red-base, $color-red-darker, $color-red-darkest, $color-disabled),
+  (
+    'ghost',
+    $color-primary,
+    $color-transparent,
+    $color-transparent,
+    $color-persian-blue-lightest,
+    $color-persian-blue-lighter,
+    $color-transparent
+  ),
+  ('select', $color-white, $color-transparent, $color-cool-gray, $color-cool-gray, $color-cool-gray, $color-transparent)
+);
+@each $name, $color, $border-color, $bg-color, $bg-hover, $bg-pressed, $bg-disabled in $variants {
+  .variant-#{$name} {
+    color: $color;
+    border-color: $border-color;
+    background-color: $bg-color;
+    .icon,
+    .icon path {
+      fill: $color;
+    }
+    &.disabled {
+      pointer-events: none;
+      background-color: $bg-disabled;
+      // color: $color-gray-darker;
+      .icon,
+      .icon path {
+        fill: $color-gray-darker;
+      }
+    }
+    &:not(.disabled):hover {
+      background-color: $bg-hover;
+    }
+    &:not(.disabled):active,
+    &:not(.disabled).activated {
+      background-color: $bg-pressed;
+    }
+    &:not(.disabled).selected {
+      border-color: $color-primary;
+      background-color: $color-persian-blue-lightest;
+      color: $color-primary;
+      .start-icon,
+      .start-icon path {
+        fill: $color-primary;
+      }
+    }
+  }
+}
+
+.full-width {
+  width: 100%;
+}

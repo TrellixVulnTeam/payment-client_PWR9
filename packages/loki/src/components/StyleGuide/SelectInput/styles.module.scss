@@ -1,0 +1,70 @@
+@import 'styles/variables.scss';
+
+/**
+   Sizes: name, padding-vertical, padding-horizontal.
+*/
+$sizes: (('lg', 4, 4), ('md', 2, 4), ('sm', 2, 2), ('xs', 1.5, 2));
+
+.select {
+  line-height: spacing(4.5);
+  width: 100%;
+  cursor: pointer;
+}
+
+@each $name, $vertical, $horizontal in $sizes {
+  .select-size-#{$name} {
+    padding: spacing($vertical) spacing($horizontal);
+    padding-right: 0;
+    line-height: 1.29;
+  }
+}
+
+.disabled {
+  pointer-events: none;
+}
+.placeholder {
+  // color: $color-purple-darker;
+  transition: color 0.1s ease;
+  &:hover {
+    color: $color-purple-darker;
+  }
+}
+
+.icon {
+  fill: $color-blue-dark;
+}
+
+/**
+  States: name, icon size.
+*/
+$icon-sizes: (('lg', 6), ('md', 6), ('sm', 4), ('xs', 3));
+@each $name, $icon-size in $icon-sizes {
+  .addon-size-#{$name} {
+    .icon {
+      width: spacing($icon-size);
+      height: spacing($icon-size);
+    }
+  }
+}
+
+$label-sizes: (
+  ('lg', $font-size-body1, spacing(6)),
+  ('md', $font-size-body1, spacing(6)),
+  ('sm', $font-size-body1, spacing(4)),
+  // ('xs', $font-size-tiny, spacing(3))
+);
+@each $name, $size, $line-height in $label-sizes {
+  .label-size-#{$name} {
+    font-size: $size;
+    line-height: $line-height;
+  }
+}
+
+.is-selected {
+  background-color: $color-persian-blue-lightest;
+  border-color: $color-primary;
+  .icon,
+  .icon svg {
+    fill: $color-primary;
+  }
+}

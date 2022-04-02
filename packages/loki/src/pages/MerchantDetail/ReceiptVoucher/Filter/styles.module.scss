@@ -1,0 +1,14 @@
+@import 'styles/variables.scss';
+
+.root {
+  .pointer {
+    cursor: pointer;
+  }
+  .search-icon {
+    path {
+      fill: $color-cool-gray;
+    }
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+}

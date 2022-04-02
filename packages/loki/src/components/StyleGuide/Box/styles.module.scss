@@ -1,0 +1,46 @@
+@import "styles/variables.scss";
+
+$spacings: 12;
+
+$spacing-keys: (
+  "margin",
+  "margin-top",
+  "margin-right",
+  "margin-bottom",
+  "margin-left",
+  "padding",
+  "padding-top",
+  "padding-right",
+  "padding-bottom",
+  "padding-left"
+);
+
+@mixin box-spacing($breakpoint, $key, $spacing) {
+  $themeSpacing: $spacing-unit * $spacing;
+
+  @if $breakpoint == false {
+    .spacing-#{$key}-#{$spacing} {
+      #{$key}: $themeSpacing;
+    }
+  } @else {
+    .spacing-#{$breakpoint}-#{$key}-#{$spacing} {
+      #{$key}: $themeSpacing;
+    }
+  }
+}
+
+@for $spacing from 1 through $spacings {
+  @each $key in $spacing-keys {
+    @include box-spacing(false, $key, $spacing);
+  }
+}
+
+@each $breakpoint, $value in $grid-breakpoints {
+  @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+    @each $key in $spacing-keys {
+      @for $spacing from 1 through $spacings {
+        @include box-spacing($breakpoint, $key, $spacing);
+      }
+    }
+  }
+}

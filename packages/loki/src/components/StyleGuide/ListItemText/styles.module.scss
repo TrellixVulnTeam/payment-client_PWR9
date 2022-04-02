@@ -1,0 +1,20 @@
+@import 'styles/variables.scss';
+
+.listItemText {
+  width: 100%;
+}
+
+.inset {
+  padding-left: 4rem;
+}
+
+$font-sizes: (
+  ('lg', $font-size-body1),
+  ('md', $font-size-body2),
+);
+@each $name, $size in $font-sizes {
+  .text-size-#{$name} {
+    font-size: $size;
+    margin-right: 0;
+  }
+}

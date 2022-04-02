@@ -1,0 +1,84 @@
+@import 'styles/variables.scss';
+
+/**
+   Sizes: name, padding-vertical, padding-horizontal.
+*/
+$sizes: (('lg', 4, 6), ('md', 2, 4));
+
+.select {
+  line-height: spacing(4.5);
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+@each $name, $vertical, $horizontal in $sizes {
+  .select-size-#{$name} {
+    padding: spacing($vertical) spacing($horizontal);
+    padding-right: 0;
+    line-height: 1.29;
+  }
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+.placeholder {
+  color: $color-gray-darker;
+  transition: color 0.1s ease;
+  &:hover {
+    color: $color-gray-darker;
+  }
+}
+
+.icon {
+  fill: $color-blue-dark;
+}
+
+/**
+  States: name, icon size.
+*/
+$icon-sizes: (('lg', 6), ('md', 6));
+@each $name, $icon-size in $icon-sizes {
+  .addon-size-#{$name} {
+    .icon {
+      width: spacing($icon-size);
+      height: spacing($icon-size);
+    }
+  }
+}
+
+$label-sizes: (('lg', $font-size-body1, spacing(6)), ('md', $font-size-body1, spacing(6)));
+@each $name, $size, $line-height in $label-sizes {
+  .label-size-#{$name} {
+    font-size: $size;
+    line-height: $line-height;
+  }
+}
+
+.input.is-selected {
+  background-color: $color-persian-blue-lightest;
+  border-color: $color-primary;
+  .icon,
+  .icon svg {
+    fill: $color-primary;
+  }
+}
+
+.input.is-open {
+  background-color: $color-white;
+  border-color: $color-primary;
+}
+
+// .input:not(.is-open) {
+//   .label-text {
+//     color: $color-blue-dark;
+//   }
+// }
+
+.wrapper-list {
+  overflow: auto;
+}

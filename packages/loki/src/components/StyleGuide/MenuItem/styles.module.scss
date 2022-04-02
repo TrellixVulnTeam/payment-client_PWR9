@@ -1,0 +1,13 @@
+@import 'styles/variables.scss';
+
+.menuItem {
+  cursor: pointer;
+
+  &:not(.disabled):hover {
+    background-color: $color-persian-blue-lightest;
+  }
+
+  + * .menuItem:not(:hover):not(.disabled):not(.activated) {
+    color: $color-cool-gray;
+  }
+}

@@ -1,0 +1,19 @@
+@import 'styles/variables.scss';
+
+.root {
+  display: flex;
+
+  &.direction-column {
+    flex-direction: column;
+    & > *:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+
+  &.direction-row {
+    flex-direction: row;
+    & > *:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+}

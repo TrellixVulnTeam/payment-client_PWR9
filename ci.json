@@ -1,0 +1,9 @@
+{
+  "owners": [""],
+  "notify_channels": {
+    "*": {
+      "channel": "C0299HB3DG9",
+      "additional_receivers": []
+    }
+  }
+}

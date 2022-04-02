@@ -1,0 +1,12 @@
+@import 'styles/variables.scss';
+
+.line {
+  width: 2.4rem;
+  height: 4px;
+  border-radius: 4px;
+}
+
+.tooltip-container {
+  background-color: $color-cool-gray;
+  border-radius: $radius-bold;
+}
